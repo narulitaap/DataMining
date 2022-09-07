@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; Penambangan Data</title>
+    <title>Membaca data dari url link :https://raw.githubusercontent.com/plotly/datasets/master/iris.csv &#8212; Penambangan Data</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -113,10 +113,15 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="markdown.html">
    Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Membaca data dari url link :https://raw.githubusercontent.com/plotly/datasets/master/iris.csv
   </a>
  </li>
  <li class="toctree-l1">
@@ -308,50 +313,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>Membaca data dari url link :https://raw.githubusercontent.com/plotly/datasets/master/iris.csv</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -359,32 +337,33 @@ title="Print to PDF"
                 
               <div>
                 
-  <p>Membaca data dari url link :<a class="reference external" href="https://raw.githubusercontent.com/Opensourcefordatascience/Data-sets/master/blood_pressure.csv">https://raw.githubusercontent.com/Opensourcefordatascience/Data-sets/master/blood_pressure.csv</a></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="membaca-data-dari-url-link-https-raw-githubusercontent-com-plotly-datasets-master-iris-csv">
+<h1>Membaca data dari url link :<a class="reference external" href="https://raw.githubusercontent.com/plotly/datasets/master/iris.csv">https://raw.githubusercontent.com/plotly/datasets/master/iris.csv</a><a class="headerlink" href="#membaca-data-dari-url-link-https-raw-githubusercontent-com-plotly-datasets-master-iris-csv" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/Opensourcefordatascience/Data-sets/master/blood_pressure.csv&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/plotly/datasets/master/iris.csv&#39;</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     patient     sex agegrp  bp_before  bp_after
-0          1    Male  30-45        143       153
-1          2    Male  30-45        163       170
-2          3    Male  30-45        153       168
-3          4    Male  30-45        153       142
-4          5    Male  30-45        146       141
-..       ...     ...    ...        ...       ...
-115      116  Female    60+        152       152
-116      117  Female    60+        161       152
-117      118  Female    60+        165       174
-118      119  Female    60+        149       151
-119      120  Female    60+        185       163
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     SepalLength  SepalWidth  PetalLength  PetalWidth            Name
+0            5.1         3.5          1.4         0.2     Iris-setosa
+1            4.9         3.0          1.4         0.2     Iris-setosa
+2            4.7         3.2          1.3         0.2     Iris-setosa
+3            4.6         3.1          1.5         0.2     Iris-setosa
+4            5.0         3.6          1.4         0.2     Iris-setosa
+..           ...         ...          ...         ...             ...
+145          6.7         3.0          5.2         2.3  Iris-virginica
+146          6.3         2.5          5.0         1.9  Iris-virginica
+147          6.5         3.0          5.2         2.0  Iris-virginica
+148          6.2         3.4          5.4         2.3  Iris-virginica
+149          5.9         3.0          5.1         1.8  Iris-virginica
 
-[120 rows x 5 columns]
+[150 rows x 5 columns]
 </pre></div>
 </div>
 </div>
@@ -397,17 +376,17 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 120 entries, 0 to 119
+RangeIndex: 150 entries, 0 to 149
 Data columns (total 5 columns):
- #   Column     Non-Null Count  Dtype 
----  ------     --------------  ----- 
- 0   patient    120 non-null    int64 
- 1   sex        120 non-null    object
- 2   agegrp     120 non-null    object
- 3   bp_before  120 non-null    int64 
- 4   bp_after   120 non-null    int64 
-dtypes: int64(3), object(2)
-memory usage: 4.8+ KB
+ #   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+ 0   SepalLength  150 non-null    float64
+ 1   SepalWidth   150 non-null    float64
+ 2   PetalLength  150 non-null    float64
+ 3   PetalWidth   150 non-null    float64
+ 4   Name         150 non-null    object 
+dtypes: float64(4), object(1)
+memory usage: 6.0+ KB
 </pre></div>
 </div>
 </div>
@@ -421,7 +400,7 @@ memory usage: 4.8+ KB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-93f63ed0-ce1e-46b1-8927-2863d13dfb9a">
+  <div id="df-54be7684-2dd0-48bb-98c4-c0972949d203">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -441,53 +420,53 @@ memory usage: 4.8+ KB
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>patient</th>
-      <th>sex</th>
-      <th>agegrp</th>
-      <th>bp_before</th>
-      <th>bp_after</th>
+      <th>SepalLength</th>
+      <th>SepalWidth</th>
+      <th>PetalLength</th>
+      <th>PetalWidth</th>
+      <th>Name</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>1</td>
-      <td>Male</td>
-      <td>30-45</td>
-      <td>143</td>
-      <td>153</td>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2</td>
-      <td>Male</td>
-      <td>30-45</td>
-      <td>163</td>
-      <td>170</td>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>3</td>
-      <td>Male</td>
-      <td>30-45</td>
-      <td>153</td>
-      <td>168</td>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>4</td>
-      <td>Male</td>
-      <td>30-45</td>
-      <td>153</td>
-      <td>142</td>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>5</td>
-      <td>Male</td>
-      <td>30-45</td>
-      <td>146</td>
-      <td>141</td>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>...</th>
@@ -498,50 +477,50 @@ memory usage: 4.8+ KB
       <td>...</td>
     </tr>
     <tr>
-      <th>115</th>
-      <td>116</td>
-      <td>Female</td>
-      <td>60+</td>
-      <td>152</td>
-      <td>152</td>
+      <th>145</th>
+      <td>6.7</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.3</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
-      <th>116</th>
-      <td>117</td>
-      <td>Female</td>
-      <td>60+</td>
-      <td>161</td>
-      <td>152</td>
+      <th>146</th>
+      <td>6.3</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.9</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
-      <th>117</th>
-      <td>118</td>
-      <td>Female</td>
-      <td>60+</td>
-      <td>165</td>
-      <td>174</td>
+      <th>147</th>
+      <td>6.5</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.0</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
-      <th>118</th>
-      <td>119</td>
-      <td>Female</td>
-      <td>60+</td>
-      <td>149</td>
-      <td>151</td>
+      <th>148</th>
+      <td>6.2</td>
+      <td>3.4</td>
+      <td>5.4</td>
+      <td>2.3</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
-      <th>119</th>
-      <td>120</td>
-      <td>Female</td>
-      <td>60+</td>
-      <td>185</td>
-      <td>163</td>
+      <th>149</th>
+      <td>5.9</td>
+      <td>3.0</td>
+      <td>5.1</td>
+      <td>1.8</td>
+      <td>Iris-virginica</td>
     </tr>
   </tbody>
 </table>
-<p>120 rows × 5 columns</p>
+<p>150 rows × 5 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-93f63ed0-ce1e-46b1-8927-2863d13dfb9a')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-54be7684-2dd0-48bb-98c4-c0972949d203')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -592,12 +571,12 @@ memory usage: 4.8+ KB
 
       <script>
         const buttonEl =
-          document.querySelector('#df-93f63ed0-ce1e-46b1-8927-2863d13dfb9a button.colab-df-convert');
+          document.querySelector('#df-54be7684-2dd0-48bb-98c4-c0972949d203 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-93f63ed0-ce1e-46b1-8927-2863d13dfb9a');
+          const element = document.querySelector('#df-54be7684-2dd0-48bb-98c4-c0972949d203');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -624,20 +603,20 @@ memory usage: 4.8+ KB
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#data statistik pada kolom sebelum bp</span>
-<span class="n">c</span><span class="p">[</span><span class="s1">&#39;bp_before&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">c</span><span class="p">[</span><span class="s1">&#39;PetalLength&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    120.000000
-mean     156.450000
-std       11.389845
-min      138.000000
-25%      147.000000
-50%      154.500000
-75%      164.000000
-max      185.000000
-Name: bp_before, dtype: float64
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    150.000000
+mean       3.758667
+std        1.764420
+min        1.000000
+25%        1.600000
+50%        4.350000
+75%        5.100000
+max        6.900000
+Name: PetalLength, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -652,7 +631,7 @@ Name: bp_before, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;bp_before&#39;</span><span class="p">]);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;PetalLength&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
 </div>
@@ -660,6 +639,7 @@ Name: bp_before, dtype: float64
 <img alt="_images/notebooks_8_0.png" src="_images/notebooks_8_0.png" />
 </div>
 </div>
+</section>
 
     <script type="text/x-thebe-config">
     {
