@@ -340,6 +340,16 @@ title="Print to PDF"
    Membaca data dari url link
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#membuat-statistik-deskriptif-misalkan-rata-numerik-dari-data-setiap-atribut-yang-bertipe-numerik">
+   Membuat statistik deskriptif(misalkan rata”/numerik) dari data (setiap atribut yang bertipe numerik)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mendeskripsikan-kemiringan-skewned-dari-setiap-variabel-beritpe-numerik">
+   Mendeskripsikan kemiringan/skewned dari setiap variabel beritpe numerik
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -362,6 +372,16 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#membaca-data-dari-url-link">
    Membaca data dari url link
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#membuat-statistik-deskriptif-misalkan-rata-numerik-dari-data-setiap-atribut-yang-bertipe-numerik">
+   Membuat statistik deskriptif(misalkan rata”/numerik) dari data (setiap atribut yang bertipe numerik)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mendeskripsikan-kemiringan-skewned-dari-setiap-variabel-beritpe-numerik">
+   Mendeskripsikan kemiringan/skewned dari setiap variabel beritpe numerik
   </a>
  </li>
 </ul>
@@ -452,7 +472,7 @@ memory usage: 6.0+ KB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d025bca0-b0d9-4f76-a563-f912de7bcf24">
+  <div id="df-e8f9f858-132f-4106-8d3d-bb51c0cd5bf4">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -572,7 +592,7 @@ memory usage: 6.0+ KB
 </table>
 <p>150 rows × 5 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-d025bca0-b0d9-4f76-a563-f912de7bcf24')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-e8f9f858-132f-4106-8d3d-bb51c0cd5bf4')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -623,12 +643,12 @@ memory usage: 6.0+ KB
 
       <script>
         const buttonEl =
-          document.querySelector('#df-d025bca0-b0d9-4f76-a563-f912de7bcf24 button.colab-df-convert');
+          document.querySelector('#df-e8f9f858-132f-4106-8d3d-bb51c0cd5bf4 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-d025bca0-b0d9-4f76-a563-f912de7bcf24');
+          const element = document.querySelector('#df-e8f9f858-132f-4106-8d3d-bb51c0cd5bf4');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -649,9 +669,9 @@ memory usage: 6.0+ KB
   </div>
 </div></div>
 </div>
-<ol class="simple">
-<li><p>Membuat statistik deskriptif(misalkan rata”/numerik) dari data (setiap atribut yang bertipe numerik)</p></li>
-</ol>
+</section>
+<section id="membuat-statistik-deskriptif-misalkan-rata-numerik-dari-data-setiap-atribut-yang-bertipe-numerik">
+<h2>Membuat statistik deskriptif(misalkan rata”/numerik) dari data (setiap atribut yang bertipe numerik)<a class="headerlink" href="#membuat-statistik-deskriptif-misalkan-rata-numerik-dari-data-setiap-atribut-yang-bertipe-numerik" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#data statistik pada kolom sepal length</span>
@@ -736,7 +756,9 @@ Name: PetalLength, dtype: float64
 </div>
 </div>
 </div>
-<p>3.Mendeskripsikan kemiringan/skewned dari setiap variabel beritpe numerik</p>
+</section>
+<section id="mendeskripsikan-kemiringan-skewned-dari-setiap-variabel-beritpe-numerik">
+<h2>Mendeskripsikan kemiringan/skewned dari setiap variabel beritpe numerik<a class="headerlink" href="#mendeskripsikan-kemiringan-skewned-dari-setiap-variabel-beritpe-numerik" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="p">[</span><span class="s1">&#39;PetalWidth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">skew</span><span class="p">()</span>
