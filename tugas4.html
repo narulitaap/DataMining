@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Mendapatkan Data &#8212; Penambangan Data</title>
+    <title>K-Means &#8212; Penambangan Data</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -333,27 +333,27 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mendapatkan-data">
    Mendapatkan Data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#menjelaskan-data">
    Menjelaskan data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mengubah-nama-kelas-menjadi-kategori-numerik-untuk-analisis">
    Mengubah nama kelas menjadi kategori numerik untuk analisis
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mempersiapkan-kumpulan-data">
    Mempersiapkan kumpulan data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#menjalankan-k-means">
    Menjalankan K-Means
   </a>
@@ -367,7 +367,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Mendapatkan Data</h1>
+                <h1>K-Means</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -377,27 +377,27 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mendapatkan-data">
    Mendapatkan Data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#menjelaskan-data">
    Menjelaskan data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mengubah-nama-kelas-menjadi-kategori-numerik-untuk-analisis">
    Mengubah nama kelas menjadi kategori numerik untuk analisis
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mempersiapkan-kumpulan-data">
    Mempersiapkan kumpulan data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#menjalankan-k-means">
    Menjalankan K-Means
   </a>
@@ -412,10 +412,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <p>#K-Means</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="k-means">
+<h1>K-Means<a class="headerlink" href="#k-means" title="Permalink to this headline">#</a></h1>
 <p>Clustering of Iris Data</p>
 <section id="mendapatkan-data">
-<h1>Mendapatkan Data<a class="headerlink" href="#mendapatkan-data" title="Permalink to this headline">#</a></h1>
+<h2>Mendapatkan Data<a class="headerlink" href="#mendapatkan-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  
@@ -432,7 +433,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="menjelaskan-data">
-<h1>Menjelaskan data<a class="headerlink" href="#menjelaskan-data" title="Permalink to this headline">#</a></h1>
+<h2>Menjelaskan data<a class="headerlink" href="#menjelaskan-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">irisdata</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -441,7 +442,7 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-8196ae9d-c428-4c26-94a9-b453f372e49c">
+  <div id="df-0079fdb9-af84-418e-8ba3-5278f4371bcf">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -512,7 +513,7 @@ title="Print to PDF"
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-8196ae9d-c428-4c26-94a9-b453f372e49c')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-0079fdb9-af84-418e-8ba3-5278f4371bcf')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -563,12 +564,12 @@ title="Print to PDF"
 
       <script>
         const buttonEl =
-          document.querySelector('#df-8196ae9d-c428-4c26-94a9-b453f372e49c button.colab-df-convert');
+          document.querySelector('#df-0079fdb9-af84-418e-8ba3-5278f4371bcf button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-8196ae9d-c428-4c26-94a9-b453f372e49c');
+          const element = document.querySelector('#df-0079fdb9-af84-418e-8ba3-5278f4371bcf');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -591,7 +592,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="mengubah-nama-kelas-menjadi-kategori-numerik-untuk-analisis">
-<h1>Mengubah nama kelas menjadi kategori numerik untuk analisis<a class="headerlink" href="#mengubah-nama-kelas-menjadi-kategori-numerik-untuk-analisis" title="Permalink to this headline">#</a></h1>
+<h2>Mengubah nama kelas menjadi kategori numerik untuk analisis<a class="headerlink" href="#mengubah-nama-kelas-menjadi-kategori-numerik-untuk-analisis" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">irisdata</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">irisdata</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">])</span>
@@ -602,7 +603,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="mempersiapkan-kumpulan-data">
-<h1>Mempersiapkan kumpulan data<a class="headerlink" href="#mempersiapkan-kumpulan-data" title="Permalink to this headline">#</a></h1>
+<h2>Mempersiapkan kumpulan data<a class="headerlink" href="#mempersiapkan-kumpulan-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">irisdata</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
@@ -613,7 +614,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="menjalankan-k-means">
-<h1>Menjalankan K-Means<a class="headerlink" href="#menjalankan-k-means" title="Permalink to this headline">#</a></h1>
+<h2>Menjalankan K-Means<a class="headerlink" href="#menjalankan-k-means" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
@@ -630,6 +631,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
