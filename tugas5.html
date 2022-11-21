@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>K-Means &#8212; Penambangan Data</title>
+    <title>Naive Bayes Classifier &#8212; Penambangan Data</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Naive Bayes Classifier" href="tugas5.html" />
-    <link rel="prev" title="K-NN Algoritma" href="tugas3.html" />
+    <link rel="next" title="Normalisasi min-max" href="tugas6.html" />
+    <link rel="prev" title="K-Means" href="tugas4.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -134,13 +134,13 @@ const thebe_selector_output = ".output, .cell_output"
    K-NN Algoritma
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tugas4.html">
    K-Means
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="tugas5.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Naive Bayes Classifier
   </a>
  </li>
@@ -213,7 +213,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://colab.research.google.com/github/narulitaap/datamining/blob/gh-pages/_sources/tugas4.ipynb"
+        <a href="https://colab.research.google.com/github/narulitaap/datamining/blob/gh-pages/_sources/tugas5.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -273,7 +273,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/narulitaap/datamining/issues/new?title=Issue%20on%20page%20%2Ftugas4.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/narulitaap/datamining/issues/new?title=Issue%20on%20page%20%2Ftugas5.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -301,7 +301,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/tugas4.ipynb"
+        <a href="_sources/tugas5.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -361,28 +361,33 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mendapatkan-data">
-   Mendapatkan Data
+  <a class="reference internal nav-link" href="#definisi">
+   Definisi
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#menjelaskan-data">
-   Menjelaskan data
+  <a class="reference internal nav-link" href="#dataset">
+   Dataset
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mengubah-nama-kelas-menjadi-kategori-numerik-untuk-analisis">
-   Mengubah nama kelas menjadi kategori numerik untuk analisis
+  <a class="reference internal nav-link" href="#model-naive-bayes">
+   Model Naive Bayes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mempersiapkan-kumpulan-data">
-   Mempersiapkan kumpulan data
+  <a class="reference internal nav-link" href="#akurasi">
+   Akurasi
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#menjalankan-k-means">
-   Menjalankan K-Means
+  <a class="reference internal nav-link" href="#prediksi">
+   Prediksi
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-prediksi">
+   Test Prediksi
   </a>
  </li>
 </ul>
@@ -394,7 +399,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>K-Means</h1>
+                <h1>Naive Bayes Classifier</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -405,28 +410,33 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mendapatkan-data">
-   Mendapatkan Data
+  <a class="reference internal nav-link" href="#definisi">
+   Definisi
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#menjelaskan-data">
-   Menjelaskan data
+  <a class="reference internal nav-link" href="#dataset">
+   Dataset
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mengubah-nama-kelas-menjadi-kategori-numerik-untuk-analisis">
-   Mengubah nama kelas menjadi kategori numerik untuk analisis
+  <a class="reference internal nav-link" href="#model-naive-bayes">
+   Model Naive Bayes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mempersiapkan-kumpulan-data">
-   Mempersiapkan kumpulan data
+  <a class="reference internal nav-link" href="#akurasi">
+   Akurasi
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#menjalankan-k-means">
-   Menjalankan K-Means
+  <a class="reference internal nav-link" href="#prediksi">
+   Prediksi
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-prediksi">
+   Test Prediksi
   </a>
  </li>
 </ul>
@@ -439,17 +449,17 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="k-means">
-<h1>K-Means<a class="headerlink" href="#k-means" title="Permalink to this headline">#</a></h1>
-<p>Clustering of Iris Data</p>
-<section id="mendapatkan-data">
-<h2>Mendapatkan Data<a class="headerlink" href="#mendapatkan-data" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="naive-bayes-classifier">
+<h1>Naive Bayes Classifier<a class="headerlink" href="#naive-bayes-classifier" title="Permalink to this headline">#</a></h1>
+<section id="definisi">
+<h2>Definisi<a class="headerlink" href="#definisi" title="Permalink to this headline">#</a></h2>
+<p>Naive Bayes Classifier (NBC) merupakan salah satu metoda Machine Learning yang memanfaatkan perhitungan probabilitas dan statistik yang dikemukakan oleh ilmuwan Inggris Thomas Bayes, yaitu memprediksi probabilitas di masa depan berdasarkan pengalaman di masa sebelumnya.</p>
+</section>
+<section id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data&quot;</span>
 <span class="c1">#the imported dataset does not have the required column names so lets add it</span>
 <span class="n">colnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sepal-length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal-width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal-length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal-width&#39;</span><span class="p">,</span> <span class="s1">&#39;Class&#39;</span><span class="p">]</span>
@@ -458,18 +468,74 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="menjelaskan-data">
-<h2>Menjelaskan data<a class="headerlink" href="#menjelaskan-data" title="Permalink to this headline">#</a></h2>
+<p>#Data training dan testing</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">irisdata</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">irisdata</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>  
+<span class="n">y</span> <span class="o">=</span> <span class="n">irisdata</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span><span class="mi">4</span><span class="p">]</span>  
+<span class="c1"># splitting X and y into training and testing sets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-naive-bayes">
+<h2>Model Naive Bayes<a class="headerlink" href="#model-naive-bayes" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># training the model on training set</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="n">gnb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">gnb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GaussianNB()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># making predictions on the testing set</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="akurasi">
+<h2>Akurasi<a class="headerlink" href="#akurasi" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># comparing actual response values (y_test) with predicted response values (y_pred)</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gaussian Naive Bayes model accuracy(in %):&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gaussian Naive Bayes model accuracy(in %): 95.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="prediksi">
+<h2>Prediksi<a class="headerlink" href="#prediksi" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">colnames</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">colnames</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-6204dc86-66ce-4d82-a988-49b27352161a">
+  <div id="df-44e731a8-b3e0-4aa7-aafc-65c2dceeb627">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -499,48 +565,488 @@ title="Print to PDF"
   <tbody>
     <tr>
       <th>0</th>
-      <td>5.1</td>
-      <td>3.5</td>
-      <td>1.4</td>
+      <td>5.8</td>
+      <td>4.0</td>
+      <td>1.2</td>
       <td>0.2</td>
       <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>4.9</td>
+      <td>5.1</td>
+      <td>2.5</td>
       <td>3.0</td>
+      <td>1.1</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6.6</td>
+      <td>3.0</td>
+      <td>4.4</td>
       <td>1.4</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.4</td>
+      <td>3.9</td>
+      <td>1.3</td>
+      <td>0.4</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7.9</td>
+      <td>3.8</td>
+      <td>6.4</td>
+      <td>2.0</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6.3</td>
+      <td>3.3</td>
+      <td>4.7</td>
+      <td>1.6</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6.9</td>
+      <td>3.1</td>
+      <td>5.1</td>
+      <td>2.3</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>5.1</td>
+      <td>3.8</td>
+      <td>1.9</td>
+      <td>0.4</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.6</td>
       <td>0.2</td>
       <td>Iris-setosa</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>4.7</td>
+      <th>9</th>
+      <td>6.9</td>
+      <td>3.2</td>
+      <td>5.7</td>
+      <td>2.3</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>5.6</td>
+      <td>2.7</td>
+      <td>4.2</td>
+      <td>1.3</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>5.4</td>
+      <td>3.9</td>
+      <td>1.7</td>
+      <td>0.4</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>7.1</td>
+      <td>3.0</td>
+      <td>5.9</td>
+      <td>2.1</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>6.4</td>
+      <td>3.2</td>
+      <td>4.5</td>
+      <td>1.5</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>6.0</td>
+      <td>2.9</td>
+      <td>4.5</td>
+      <td>1.5</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>4.4</td>
       <td>3.2</td>
       <td>1.3</td>
       <td>0.2</td>
       <td>Iris-setosa</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>16</th>
+      <td>5.8</td>
+      <td>2.6</td>
+      <td>4.0</td>
+      <td>1.2</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>5.6</td>
+      <td>3.0</td>
+      <td>4.5</td>
+      <td>1.5</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>5.4</td>
+      <td>3.4</td>
+      <td>1.5</td>
+      <td>0.4</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>5.0</td>
+      <td>3.2</td>
+      <td>1.2</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>5.5</td>
+      <td>2.6</td>
+      <td>4.4</td>
+      <td>1.2</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>5.4</td>
+      <td>3.0</td>
+      <td>4.5</td>
+      <td>1.5</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>6.7</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>1.7</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>5.0</td>
+      <td>3.5</td>
+      <td>1.3</td>
+      <td>0.3</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>7.2</td>
+      <td>3.2</td>
+      <td>6.0</td>
+      <td>1.8</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>5.7</td>
+      <td>2.8</td>
+      <td>4.1</td>
+      <td>1.3</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>5.5</td>
+      <td>4.2</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>5.1</td>
+      <td>3.8</td>
+      <td>1.5</td>
+      <td>0.3</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>6.1</td>
+      <td>2.8</td>
+      <td>4.7</td>
+      <td>1.2</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>6.3</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.9</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>6.1</td>
+      <td>3.0</td>
       <td>4.6</td>
-      <td>3.1</td>
+      <td>1.4</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>7.7</td>
+      <td>3.0</td>
+      <td>6.1</td>
+      <td>2.3</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>5.6</td>
+      <td>2.5</td>
+      <td>3.9</td>
+      <td>1.1</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>6.4</td>
+      <td>2.8</td>
+      <td>5.6</td>
+      <td>2.1</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>5.8</td>
+      <td>2.8</td>
+      <td>5.1</td>
+      <td>2.4</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>5.3</td>
+      <td>3.7</td>
       <td>1.5</td>
       <td>0.2</td>
       <td>Iris-setosa</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>36</th>
+      <td>5.5</td>
+      <td>2.3</td>
+      <td>4.0</td>
+      <td>1.3</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>5.2</td>
+      <td>3.4</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>6.5</td>
+      <td>2.8</td>
+      <td>4.6</td>
+      <td>1.5</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>6.7</td>
+      <td>2.5</td>
+      <td>5.8</td>
+      <td>1.8</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>6.8</td>
+      <td>3.0</td>
+      <td>5.5</td>
+      <td>2.1</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.3</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>6.0</td>
+      <td>2.2</td>
+      <td>5.0</td>
+      <td>1.5</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>6.3</td>
+      <td>2.9</td>
+      <td>5.6</td>
+      <td>1.8</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>6.6</td>
+      <td>2.9</td>
+      <td>4.6</td>
+      <td>1.3</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>7.7</td>
+      <td>2.6</td>
+      <td>6.9</td>
+      <td>2.3</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>5.7</td>
+      <td>3.8</td>
+      <td>1.7</td>
+      <td>0.3</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>47</th>
       <td>5.0</td>
       <td>3.6</td>
       <td>1.4</td>
       <td>0.2</td>
       <td>Iris-setosa</td>
     </tr>
+    <tr>
+      <th>48</th>
+      <td>4.8</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.3</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>5.2</td>
+      <td>2.7</td>
+      <td>3.9</td>
+      <td>1.4</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>5.1</td>
+      <td>3.4</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>5.5</td>
+      <td>3.5</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>7.7</td>
+      <td>3.8</td>
+      <td>6.7</td>
+      <td>2.2</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>6.9</td>
+      <td>3.1</td>
+      <td>5.4</td>
+      <td>2.1</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>7.3</td>
+      <td>2.9</td>
+      <td>6.3</td>
+      <td>1.8</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>6.4</td>
+      <td>2.8</td>
+      <td>5.6</td>
+      <td>2.2</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>6.2</td>
+      <td>2.8</td>
+      <td>4.8</td>
+      <td>1.8</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>6.0</td>
+      <td>3.4</td>
+      <td>4.5</td>
+      <td>1.6</td>
+      <td>Iris-versicolor</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>7.7</td>
+      <td>2.8</td>
+      <td>6.7</td>
+      <td>2.0</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>5.7</td>
+      <td>3.0</td>
+      <td>4.2</td>
+      <td>1.2</td>
+      <td>Iris-versicolor</td>
+    </tr>
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-6204dc86-66ce-4d82-a988-49b27352161a')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-44e731a8-b3e0-4aa7-aafc-65c2dceeb627')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -591,12 +1097,12 @@ title="Print to PDF"
 
       <script>
         const buttonEl =
-          document.querySelector('#df-6204dc86-66ce-4d82-a988-49b27352161a button.colab-df-convert');
+          document.querySelector('#df-44e731a8-b3e0-4aa7-aafc-65c2dceeb627 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-6204dc86-66ce-4d82-a988-49b27352161a');
+          const element = document.querySelector('#df-44e731a8-b3e0-4aa7-aafc-65c2dceeb627');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -618,42 +1124,17 @@ title="Print to PDF"
 </div></div>
 </div>
 </section>
-<section id="mengubah-nama-kelas-menjadi-kategori-numerik-untuk-analisis">
-<h2>Mengubah nama kelas menjadi kategori numerik untuk analisis<a class="headerlink" href="#mengubah-nama-kelas-menjadi-kategori-numerik-untuk-analisis" title="Permalink to this headline">#</a></h2>
+<section id="test-prediksi">
+<h2>Test Prediksi<a class="headerlink" href="#test-prediksi" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">irisdata</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">irisdata</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">])</span>
-<span class="n">irisdata</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">irisdata</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mf">6.7</span><span class="p">,</span>	<span class="mf">3.0</span><span class="p">,</span>	<span class="mf">5.2</span><span class="p">,</span>	<span class="mf">2.3</span><span class="p">]])</span>
+<span class="n">y_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-</div>
-</section>
-<section id="mempersiapkan-kumpulan-data">
-<h2>Mempersiapkan kumpulan data<a class="headerlink" href="#mempersiapkan-kumpulan-data" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">irisdata</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">irisdata</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="menjalankan-k-means">
-<h2>Menjalankan K-Means<a class="headerlink" href="#menjalankan-k-means" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-
-<span class="c1"># Number of clusters</span>
-<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="c1"># Fitting the input data</span>
-<span class="n">kmeans</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="c1"># Getting the cluster labels</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="c1"># Centroid values</span>
-<span class="n">centroids</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Iris-virginica&#39;
 </pre></div>
 </div>
 </div>
@@ -688,17 +1169,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="tugas3.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="tugas4.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">K-NN Algoritma</p>
+            <p class="prev-next-title">K-Means</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="tugas5.html" title="next page">
+    <a class='right-next' id="next-link" href="tugas6.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Naive Bayes Classifier</p>
+        <p class="prev-next-title">Normalisasi min-max</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
